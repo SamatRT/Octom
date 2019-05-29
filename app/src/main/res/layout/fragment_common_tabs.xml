@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".CommonTabs">
+
+        <!--<ScrollView-->
+            <!--android:id="@+id/Song_Common_Scroll"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="match_parent"-->
+            <!--android:layout_above="@id/mPlayer"-->
+            <!--android:layout_alignParentTop="true"-->
+            <!--android:background="@color/colorPrimary"-->
+            <!--tools:background="@android:color/holo_green_dark">-->
+
+        <!--</ScrollView>-->
+
+        <com.github.barteksc.pdfviewer.PDFView
+            android:id="@+id/pdfView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+</FrameLayout>

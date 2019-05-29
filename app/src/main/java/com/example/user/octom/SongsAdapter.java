@@ -9,21 +9,25 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.Filter;
+import android.widget.Filterable;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class SongsAdapter extends RecyclerView.Adapter<SongsAdapter.AdapterViewHolder> {
 
     ArrayList<songs> songs = new ArrayList<>();
 
-    public class AdapterViewHolder extends RecyclerView.ViewHolder{
-        TextView title, author, PrimeCuplet, PrimePripev, LastText, MP3Source;
+    public class AdapterViewHolder extends RecyclerView.ViewHolder {
+        TextView title, author;
         Button detailButton;
         ImageView music_photo;
         LinearLayout list_itemLayout;
+
         public AdapterViewHolder(@NonNull View itemView) {
             super(itemView);
             title = itemView.findViewById(R.id.title);
@@ -34,7 +38,12 @@ public class SongsAdapter extends RecyclerView.Adapter<SongsAdapter.AdapterViewH
         }
     }
 
-    public SongsAdapter() {
+    public void setSongs(ArrayList<songs> songs){
+        this.songs = songs;
+        notifyDataSetChanged();
+    }
+
+    public SongsAdapter(ArrayList<songs> songs) {
         this.songs = songs;
     }
 
@@ -55,9 +64,10 @@ public class SongsAdapter extends RecyclerView.Adapter<SongsAdapter.AdapterViewH
         final String title = song.getTitle();
         final String author = song.getAuthor();
         final String PrimeCuplet = song.getPrimeCuplet();
-        final String PrimePripev = song.getPrimePripev();
-        final String LastText = song.getLastText();
-        final String MP3Source = song.getMP3Source();
+        final String webSource = song.getWebSource();
+        final String TintSource = song.getTintSource();
+        final int MP3SourcePlus = song.getMP3SourcePlus();
+        final int MP3SourceMinus = song.getMP3SourceMinus();
 
         adapterViewHolder.title.setText(title);
         adapterViewHolder.author.setText(author);
@@ -65,14 +75,16 @@ public class SongsAdapter extends RecyclerView.Adapter<SongsAdapter.AdapterViewH
         adapterViewHolder.detailButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(".SongActivity");
+
+                Intent intent = new Intent("android.intent.action.SongActivity");
                 adapterViewHolder.list_itemLayout.getContext().startActivity(intent);
                 SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(adapterViewHolder.list_itemLayout.getContext());
                 SharedPreferences.Editor editor = sharedPreferences.edit();
                 editor.putString("cuplet", PrimeCuplet);
-                editor.putString("pripev", PrimePripev);
-                editor.putString("last", LastText);
-                editor.putString("mp3", MP3Source);
+                editor.putString("webSource", webSource);
+                editor.putString("TintSource", TintSource);
+                editor.putInt("MP3SourcePlus", MP3SourcePlus);
+                editor.putInt("MP3SourceMinus", MP3SourceMinus);
                 editor.apply();
             }
         });
@@ -83,5 +95,7 @@ public class SongsAdapter extends RecyclerView.Adapter<SongsAdapter.AdapterViewH
     public int getItemCount() {
         return songs.size();
     }
+
+
 
 }

@@ -2,23 +2,33 @@ package com.example.user.octom;
 
 public class songs {
 
+    String PrimeCupletSource;
+    int MP3SourcePlus, MP3SourceMinus;
     String title, author;
-    String PrimeCupletSource, PrimePripevSource, LastTextSource, MP3Source;
+    String webSource;
+    String TintSource;
     private int mImageResource;
 
-    public songs(int ImageResource, String title, String author, String PrimeCupletSource, String PrimePripevSource, String LastTextSource, String MP3Source) {
+    public songs(int ImageResource, String title, String author, String PrimeCupletSource, String TintSource, String webSource, int MP3SourcePlus, int MP3SourceMinus) {
         this.mImageResource = ImageResource;
         this.title = title;
         this.author = author;
         this.PrimeCupletSource = PrimeCupletSource;
-        this.PrimePripevSource = PrimePripevSource;
-        this.LastTextSource = LastTextSource;
-        this.MP3Source = MP3Source;
+        this.TintSource = TintSource;
+        this.webSource = webSource;
+        this.MP3SourcePlus = MP3SourcePlus;
+        this.MP3SourceMinus = MP3SourceMinus;
     }
 
-    public int getmImageResource() { return mImageResource;}
+    public int getmImageResource() {
+        return mImageResource;
+    }
 
-    public void setmImageResource(int mImageResource) { this.mImageResource = mImageResource;}
+    public String getTintSource() {return TintSource;}
+
+    public void setmImageResource(int mImageResource) {
+        this.mImageResource = mImageResource;
+    }
 
     public String getTitle() {
         return title;
@@ -41,26 +51,28 @@ public class songs {
         return PrimeCupletSource;
     }
 
-    public void setPrimeCuplet(String PrimeCuplet) {this.PrimeCupletSource = PrimeCuplet;}
-
-    public String getPrimePripev() {
-        return PrimePripevSource;
+    public String getWebSource() {
+        return webSource;
     }
 
-    public void setPrimePripev(String PrimePripev) {
-        this.PrimePripevSource = PrimePripev;
+    public void setWebSource(String LastText) {
+        this.webSource = LastText;
     }
 
-    public String getLastText() { return LastTextSource;}
+    public int getMP3SourcePlus() {
+        return MP3SourcePlus;
+    }
 
-    public void setLastText(String LastText) {this.LastTextSource = LastText;}
+    public void setMP3SourcePlus(int MP3SourcePlus) {
+        this.MP3SourcePlus = MP3SourcePlus;
+    }
 
-    public String getmImages() { return LastTextSource;}
+    public int getMP3SourceMinus() {
+        return MP3SourceMinus;
+    }
 
-    public void setmImages(String LastText) { this.LastTextSource = LastText;}
-
-    public String getMP3Source() { return MP3Source;}
-
-    public void setMP3Source(String LastText) { this.MP3Source = LastText;}
+    public void setMP3SourceMinus(int MP3SourceMinus) {
+        this.MP3SourcePlus = MP3SourceMinus;
+    }
 
 }

@@ -5,7 +5,57 @@
     android:layout_height="match_parent"
     tools:context=".SearchFragment">
 
+    <LinearLayout
+        android:layout_margin="20dp"
+        android:id="@+id/song_search"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_width="3000dp"
+        android:layout_height="40dp"
+        android:orientation="horizontal">
+
+        <ViewSwitcher
+            android:layout_weight="2"
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/search_fragment_switcher"
+            android:layout_width="match_parent"
+            android:layout_marginLeft="20dp"
+            android:layout_height="match_parent" >
+
+            <TextView
+                android:layout_gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="left"
+                android:id="@+id/Text_fragment_search"
+                android:clickable="true"
+                android:textSize="20dp"
+                android:text="Нажмите для поиска"
+                />
+
+            <EditText
+                android:clickable="true"
+                android:id="@+id/Edit_fragment_search"
+                android:layout_width="match_parent"
+                android:layout_gravity="center"
+                android:layout_height="wrap_content"
+                android:background="@android:color/transparent"
+                android:hint="Вводите" />
+
+        </ViewSwitcher>
+
+    <Button
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:id="@+id/Search_button"
+        android:background="@drawable/ic_search_black_24dp"/>
+
+    </LinearLayout>
+
     <android.support.v7.widget.RecyclerView
+        android:layout_below="@+id/song_search"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/rv"
